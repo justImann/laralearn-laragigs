@@ -15,11 +15,23 @@ use App\Models\Listing;
 |
 */
 
+// Common resources Routes:
+// index - show all listings
+// show - show single Listing
+// create - show form to create a new listing
+// store - store new Listing
+// edit - edit form to edit a Listing
+// update - update listing
+// destroy - to delete a listing
+
 
 // All Listings
 // =============================
 Route::get('/', [ListingController::class, 'index']);
 
+// Show Create Form
+// =============================
+Route::get('/listings/create', [ListingController::class, 'create']);
 
 // Single Listing
 // =============================
@@ -30,14 +42,15 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 // cara kedua.. yang ini mudah dipahami awokaowkaowkaowk
 // ===============
 // Route::get('/listings/{id}', function($id) {
-//     $listing = Listing::find($id);
-
-//     if ($listing) {
-//         return view('listing', [
-//             'listing' => $listing
-//         ]);
-//     } else {
+    //     $listing = Listing::find($id);
+    
+    //     if ($listing) {
+        //         return view('listing', [
+            //             'listing' => $listing
+            //         ]);
+            //     } else {
 //         abort(404);
 //     }
-    
+
 // });
+

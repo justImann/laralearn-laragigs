@@ -13,6 +13,10 @@ class ListingController extends Controller
             'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
+    // to the listing form
+    public function create() {
+        return view('listings.create');
+    } 
     // showing single listing
     public function show(Listing $listing) {
         return view('listings.show', [
