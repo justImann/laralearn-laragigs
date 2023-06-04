@@ -4,6 +4,8 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         extend: {
@@ -12,30 +14,5 @@ module.exports = {
             },
         },
     },
-    daisyui: {
-        themes: [
-            {
-                mytheme: {
-                    primary: "#67CBA0",
-
-                    secondary: "#7B92B2",
-
-                    accent: "#6366f1",
-
-                    neutral: "#181A2A",
-
-                    "base-100": "#FFFFFF",
-
-                    info: "#0091F9",
-
-                    success: "#64BF4E",
-
-                    warning: "#EFDA17",
-
-                    error: "#FF5A35",
-                },
-            },
-        ],
-    },
-    plugins: [require("daisyui")],
+    plugins: [require("flowbite/plugin")],
 };

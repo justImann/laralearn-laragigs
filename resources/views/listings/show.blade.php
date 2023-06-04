@@ -1,10 +1,20 @@
 <x-layout>
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
     <div class="mx-4">
+        <div class="flex justify-between my-4">
+            <a href="/" class="inline-block text-black ml-4 mb-2"><i class="fa-solid fa-arrow-left"></i> Back
+            </a>
+            <div class="right flex gap-2">
+                <a href="/listings/{{ $listing->id }}/edit" class="btn btn-neutral btn-sm"><i class="fa-solid fa-pencil mr-1"></i>Edit</a>
+                <form action="/listings/{{ $listing->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-error btn-sm"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                </form>
+            </div>
+        </div>
         <x-card class="p-10">
             <div class="flex flex-col items-center justify-center text-center">
-                <img class="w-48 mr-6 mb-6" src="{{ asset('images/acme.png') }}" alt="" />
+                <img class="w-48 mr-6 mb-6" src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png') }}" alt="" />
 
                 <h3 class="text-2xl mb-2">{{ $listing->title }}</h3>
                 <div class="text-xl font-bold mb-4">{{ $listing->company }}</div>
