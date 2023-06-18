@@ -16,6 +16,9 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             return route('login');
+            // return redirect('/login')->with('warning', 'Kamu Harus Login Dulu!')->withHeaders([
+            //     'X-Custom-Header' => 'Warning',
+            // ]);
         }
     }
 }

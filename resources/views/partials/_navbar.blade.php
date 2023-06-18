@@ -7,11 +7,11 @@
             @auth
             <div class="relative group">
                 <button type="button"
-                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    class="flex mr-3 text-sm bg-gray-800 rounded-sm md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded" src="{{ asset('images/avatars/avatar.png') }}" alt="user avatar">
+                    <img class="w-8 h-8 rounded-sm" src="{{ asset('images/avatars/avatar.png') }}" alt="user avatar">
                 </button>
                 <div class="z-50 hidden bg-white peer-focus:block my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="user-dropdown">
@@ -59,22 +59,22 @@
             <ul
                 class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700" :class="{ 'hidden': !open }">
                 <li>
-                    <a href="/" class="{{ request()->is('/') ? 'text-cyan-300' : '' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent text-white md:hover:text-cyan-300 md:p-0 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                    <a href="/" class="{{ request()->is('/') ? 'active' : 'text-white md:hover:text-cyan-300 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 " aria-current="page">Home</a>
                 </li>
                 <li>
                     <a href="/listings/manage"
-                        class="{{ Request::is('/listings/manage') ? 'text-cyan-300' : '' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent text-white md:hover:text-cyan-300 md:p-0 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Manage
+                        class="{{ request()->is('listings/manage') ? 'active' : 'text-white md:hover:text-cyan-300 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 ">Manage
                         Job</a>
                 </li>
                 <li>
                     <a href="/listings/create"
-                        class="{{ Request::is('/listings/create') ? 'text-cyan-300' : '' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent text-white md:hover:text-cyan-300 md:p-0 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Post
+                        class="{{ request()->is('listings/create') ? 'active' : 'text-white md:hover:text-cyan-300 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' }} block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 ">Post
                         Job</a>
                 </li>
                 <li>
                     <a href="/profile/about"
 
-                        class="{{ Request::is('/listings/about') ? 'text-cyan-300' : '' }}block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent text-white md:hover:text-cyan-300 md:p-0 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                        class="{{ request()->is('listings/about') ? 'active' : 'text-white md:hover:text-cyan-300 md:dark:hover:text-cyan-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' }}block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 ">About</a>
                 </li>
             </ul>
         </div>

@@ -23,7 +23,7 @@
     <main>
         {{ $slot }}
     </main>
-    <x-flash-msg />
+    <x-flash-msg class="fixed z-[90] left-1/2 top-6 transform -translate-x-1/2"/>
     <footer
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
