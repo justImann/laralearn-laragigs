@@ -4,15 +4,20 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/preline/dist/*.js",
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         extend: {
             colors: {
-                laravel: "#ef3b2d",
+                primary: "#0C4A6E",
+                secondary: "#66D776",
+                info: "#1466D1",
+                warning: "#FFC700",
+                danger: "#DD2E3D",
             },
         },
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [require("preline/plugin", "flowbite/plugin")],
 };

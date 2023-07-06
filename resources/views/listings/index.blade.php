@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout class="max-w-screen-xl">
     @include('partials._hero')
     @include('partials._search')
 

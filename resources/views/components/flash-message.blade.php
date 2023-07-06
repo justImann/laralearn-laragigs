@@ -14,7 +14,7 @@
     </button>
 </div>
 @endif
-
+    
 @if (session()->has('warning'))
 <!-- Component: Success Alert With Icon -->
 <div id="toast-warning"

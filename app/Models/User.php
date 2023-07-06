@@ -3,10 +3,15 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Role;
+use App\Models\Listing;
+use App\Models\Company;
+use App\Models\JobSeeker;
+use App\Models\UserLocation;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -18,9 +23,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'full_name',
         'email',
+        'birthdate',
+        'phone_number',
+        'profile_picture',
         'password',
+        'role_type',
     ];
 
     /**
@@ -45,4 +56,25 @@ class User extends Authenticatable
     public function listings() {
         return $this->hasMany(Listing::class, 'user_id');
     }
+    // Relation to UserLocation
+    public function UserLocation() {
+        return $this->hasOne(UserLocation::class, 'user_id');
+    }
+    // Relation to Roles
+    public function role() {
+        return $this->hasOne(Role::class, 'user_id');
+    }
+    // relation to company 
+    public function company() {
+        return $this->hasOneThrough(Company::class, Rule::class, 'user_id', 'role_id');
+    }
+    // relation to jobseeker 
+    public function jobseeker() {
+        return $this->hasOneThrough(JobSeeker::class, Rule::class, 'user_id', 'role_id');
+    }
+    // cara 2
+    // public function role() {
+    //     return $this->belongsTo(Role::class, 'user_id');
+    // }
+
 }

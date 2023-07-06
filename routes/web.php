@@ -15,6 +15,28 @@ use App\Models\Listing;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// All Listings
+// =============================
+Route::get('/', [ListingController::class, 'index']);
+// Auth
+// =============================
+// show Get Started
+Route::get('/get-started', [UserController::class, 'getStarted'])->middleware('guest');
+// show reg company
+Route::get('/signup-company', [UserController::class, 'signupCompany'])->middleware('guest');
+// show reg company
+Route::get('/signup-jobseeker', [UserController::class, 'signupJobseeker'])->middleware('guest');
+// store Register form
+Route::post('/users', [UserController::class, 'store']);
+// auth user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+// Logout
+Route::post('/logout', [UserController::class, 'logout']);
+
+// show Login form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+
 
 // Common resources Routes:
 // index - show all listings
@@ -24,11 +46,6 @@ use App\Models\Listing;
 // edit - edit form to edit a Listing
 // update - update listing
 // destroy - to delete a listing
-
-
-// All Listings
-// =============================
-Route::get('/', [ListingController::class, 'index']);
 
 // Show Create Form
 // =============================
@@ -50,31 +67,18 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->mid
 // =============================
 Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
 
+
+
 // Single Listing
 // =============================
 // cara pertama.. gatau ini cara kerjanya gimana:( yang penting bisa aja awkawkaowkaowk
 // ===============
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
-// ===============
-// cara kedua.. yang ini mudah dipahami awokaowkaowkaowk
-// ===============
-// Route::get('/listings/{id}', function($id) {
-//     $listing = Listing::find($id);
-
-//     if ($listing) {
-//         return view('listing', [
-//             'listing' => $listing
-//         ]);
-//     } else {
-//         abort(404);
-//     }
-// });
-
 // show Register form
 // ==================
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
-// show Register form
+// store Register form
 // ==================
 Route::post('/users', [UserController::class, 'store']);
 

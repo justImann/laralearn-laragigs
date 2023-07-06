@@ -4,8 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Company;
+use App\Models\JobSeeker;
 use App\Models\Listing;
+use App\Models\Role;
 use App\Models\User;
+use App\Models\UserLocation;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,11 +23,28 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(5)->create();
         $user = User::factory()->create([
-            'name' => 'john doe',
-            'email' => 'johndoe@noxy.io'
+            'first_name' => 'joe',
+            'last_name' => 'mama',
+            'full_name' => 'joe mama',
+            'email' => 'joemama@noxylabs.io'
         ]);
-        Listing::factory(14)->create([
+        UserLocation::factory()->create([
             'user_id' => $user->id
+        ]);
+        // Listing::factory(14)->create([
+        //     'user_id' => $user->id
+        // ]);
+        $role = Role::factory()->create([
+            'role_type' => 'job_seeker',
+            'user_id' => $user->id
+        ]);
+
+        $company = Company::factory()->create([
+            'role_id' => $role->id
+        ]);
+
+        $jobseeker = JobSeeker::factory()->create([
+            'role_id' => $role->id
         ]);
         // Listing::create([
         //     'title' => 'Frontend Developer',
